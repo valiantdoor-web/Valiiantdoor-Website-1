@@ -2,6 +2,19 @@
 
 Professional garage door service website for Valiant Garage Door - Your trusted partner for garage door repair, installation, and maintenance.
 
+## 🚨 Deployment Status
+
+**Status:** ⚠️ **Ready for Production - Deployment Required**
+
+The website is fully developed and ready for deployment, but not yet live. See:
+- 📄 **[Quick Deployment Guide](QUICK-START-DEPLOYMENT.md)** - Deploy in 30 minutes
+- 📊 **[Full Deployment Status](DEPLOYMENT-STATUS.md)** - Complete status report
+- 📚 **[Detailed Instructions](DEPLOYMENT.md)** - Comprehensive deployment guide
+
+**Next Step:** Deploy to Vercel following the [Quick Deployment Guide](QUICK-START-DEPLOYMENT.md)
+
+---
+
 ## 📋 Overview
 
 This is a fully responsive, professional garage door service website featuring:
