@@ -53,13 +53,26 @@ The Valiant Garage Door website is fully developed and ready for production depl
 3. **Set Environment Variables**
    Navigate to Project Settings → Environment Variables and add:
    ```
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-app-password
-   EMAIL_TO=business@valiantgaragedoor.com
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_SECURE=false
+   SMTP_USER=valiantdoor@gmail.com
+   SMTP_PASS=your-gmail-app-password
+   REQUESTS_TO=vm@valiantdoor.com
+   REQUESTS_FROM=vm@valiantdoor.com
    PORT=3000
    ```
    
-   **Important:** For Gmail, use an [App Password](https://support.google.com/accounts/answer/185833)
+   **Important Gmail Configuration:**
+   - For Gmail, you **MUST** use an [App Password](https://support.google.com/accounts/answer/185833), not your regular Gmail password
+   - To create an App Password:
+     1. Go to your Google Account settings
+     2. Navigate to Security → 2-Step Verification (enable if not already)
+     3. Scroll to "App passwords"
+     4. Generate a new app password for "Mail"
+     5. Use this 16-character password as `SMTP_PASS`
+   - The Gmail account is: `valiantdoor@gmail.com`
+   - Emails will be sent to: `vm@valiantdoor.com`
 
 4. **Deploy**
    - Click "Deploy"
@@ -105,10 +118,15 @@ vercel login
 vercel --prod
 
 # Set environment variables (interactive)
-vercel env add EMAIL_USER production
-vercel env add EMAIL_PASS production
-vercel env add EMAIL_TO production
+vercel env add SMTP_HOST production    # smtp.gmail.com
+vercel env add SMTP_PORT production    # 587
+vercel env add SMTP_USER production    # valiantdoor@gmail.com
+vercel env add SMTP_PASS production    # Your Gmail App Password
+vercel env add REQUESTS_TO production  # vm@valiantdoor.com
+vercel env add REQUESTS_FROM production # vm@valiantdoor.com
 ```
+
+**Note:** For `SMTP_PASS`, you must use a Gmail App Password, not your regular password.
 
 ### Option 3: Other Hosting Platforms
 
@@ -158,10 +176,15 @@ After successful deployment:
 ## Troubleshooting
 
 ### Email Not Sending
-1. Verify environment variables in Vercel dashboard
-2. Check Gmail App Password is correct
-3. Review Vercel function logs for errors
-4. Ensure SMTP port 587 is accessible
+1. Verify environment variables in Vercel dashboard:
+   - `SMTP_HOST` should be `smtp.gmail.com`
+   - `SMTP_USER` should be `valiantdoor@gmail.com`
+   - `SMTP_PASS` should be your Gmail App Password (16 characters, no spaces)
+   - `REQUESTS_TO` should be `vm@valiantdoor.com`
+2. Ensure you're using a Gmail App Password, not your regular password
+3. Verify 2-Step Verification is enabled on your Google Account
+4. Review Vercel function logs for detailed error messages
+5. Ensure SMTP port 587 is accessible from Vercel
 
 ### 404 Errors
 1. Verify all files are committed to main branch
