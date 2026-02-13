@@ -19,11 +19,17 @@ Branch: main
 
 ### 3. Add Environment Variables
 ```bash
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-gmail-app-password
-EMAIL_TO=business@valiantgaragedoor.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=valiantdoor@gmail.com
+SMTP_PASS=your-gmail-app-password
+REQUESTS_TO=vm@valiantdoor.com
+REQUESTS_FROM=vm@valiantdoor.com
 PORT=3000
 ```
+
+**⚠️ Important:** Use a [Gmail App Password](https://support.google.com/accounts/answer/185833) for `SMTP_PASS`, not your regular password!
 
 ### 4. Click Deploy
 Wait 2 minutes → Get your URL: `your-project.vercel.app`
